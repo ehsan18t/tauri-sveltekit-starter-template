@@ -29,11 +29,19 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
+		"tauri:dev": "tauri dev",
+		"tauri:build": "tauri build",
+		"tauri:build:debug": "tauri build --debug",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"format:check": "prettier --check .",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"type-check": "tsc --noEmit",
+		"copy-icons": "cp src-tauri/icons/32x32.png static/icons/",
+		"postinstall": "npm run copy-icons"
 	},
 	"type": "module",
 	"dependencies": {

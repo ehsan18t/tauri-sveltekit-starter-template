@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { themeStore } from '@/lib/stores/theme';
 	import Icon from '@iconify/svelte';
 	import { getVersion } from '@tauri-apps/api/app';
 	import { getCurrentWindow } from '@tauri-apps/api/window';
@@ -7,7 +7,6 @@
 	import ControlButton from './ControlButton.svelte';
 
 	let appWindow: ReturnType<typeof getCurrentWindow>;
-	let theme = '';
 	let appName = '';
 	let appVersion = '';
 	let isMaximized = false;
@@ -19,35 +18,37 @@
 		let unlisten: (() => void) | undefined;
 
 		const init = async () => {
-			// Initialize theme first (client-side only)
-			const savedTheme = localStorage.getItem('theme') || 'dark';
-			theme = savedTheme;
-			// Sync with what's already set in app.html, but update if different
-			if (document.documentElement.getAttribute('data-theme') !== savedTheme) {
-				document.documentElement.setAttribute('data-theme', savedTheme);
-			}
-
-			appWindow = getCurrentWindow();
-
 			try {
-				// Get the actual window title instead of product name
-				appName = await appWindow.title();
-				appVersion = await getVersion();
+				appWindow = getCurrentWindow();
+
+				// Get app info with better error handling
+				const [title, version, maximized] = await Promise.allSettled([
+					appWindow.title(),
+					getVersion(),
+					appWindow.isMaximized()
+				]);
+
+				appName = title.status === 'fulfilled' ? title.value : 'Tauri + SvelteKit Starter Template';
+				appVersion = version.status === 'fulfilled' ? version.value : '1.0.0';
+				isMaximized = maximized.status === 'fulfilled' ? maximized.value : false;
+
+				isLoaded = true;
+
+				// Listen for window state changes
+				unlisten = await appWindow.onResized(async () => {
+					try {
+						isMaximized = await appWindow.isMaximized();
+					} catch (error) {
+						console.warn('Failed to check maximized state:', error);
+					}
+				});
 			} catch (error) {
-				console.warn('Failed to get app info:', error);
+				console.error('Failed to initialize titlebar:', error);
+				// Still show the titlebar even if some things fail
 				appName = 'Tauri + SvelteKit Starter Template';
 				appVersion = '1.0.0';
+				isLoaded = true;
 			}
-
-			isMaximized = await appWindow.isMaximized();
-
-			// Mark as loaded after all data is fetched
-			isLoaded = true;
-
-			// Listen for window state changes
-			unlisten = await appWindow.onResized(async () => {
-				isMaximized = await appWindow.isMaximized();
-			});
 		};
 
 		init();
@@ -58,24 +59,36 @@
 		};
 	});
 
-	const minimize = () => appWindow?.minimize();
+	// Window control functions with error handling
+	const minimize = async () => {
+		try {
+			await appWindow?.minimize();
+		} catch (error) {
+			console.error('Failed to minimize:', error);
+		}
+	};
+
 	const maximize = async () => {
 		if (!appWindow) return;
-		isMaximized ? appWindow.unmaximize() : appWindow.maximize();
-	};
-	const close = () => appWindow?.close();
-
-	function setTheme(newTheme: string) {
-		if (browser) {
-			document.documentElement.setAttribute('data-theme', newTheme);
-			theme = newTheme;
-			localStorage.setItem('theme', newTheme);
+		try {
+			isMaximized ? await appWindow.unmaximize() : await appWindow.maximize();
+		} catch (error) {
+			console.error('Failed to maximize/restore:', error);
 		}
-	}
+	};
 
-	function toggleTheme() {
-		setTheme(theme === 'dark' ? 'light' : 'dark');
-	}
+	const close = async () => {
+		try {
+			await appWindow?.close();
+		} catch (error) {
+			console.error('Failed to close:', error);
+		}
+	};
+
+	// Use theme store for theme toggling
+	const toggleTheme = () => {
+		themeStore.toggle();
+	};
 </script>
 
 {#if isLoaded}
@@ -109,15 +122,16 @@
 			</div>
 		</div>
 
-		<div class="window-controls drag-disable flex items-center gap-1">
+		<div class="window-controls drag-disable flex items-center">
 			<ControlButton
 				title="Toggle Theme"
-				icon={theme === 'dark' ? 'tabler:moon' : 'tabler:sun'}
+				icon={$themeStore === 'dark' ? 'tabler:moon' : 'tabler:sun'}
 				onClick={toggleTheme}
 				variant="theme"
 			/>
 
-			<div class="separator bg-border mx-1 h-4 w-px opacity-50"></div>
+			<!-- Material Design divider -->
+			<div class="bg-foreground-muted/20 mx-2 h-4 w-px"></div>
 
 			<ControlButton title="Minimize" icon="tabler:minus" onClick={minimize} variant="default" />
 			<ControlButton
