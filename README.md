@@ -1,38 +1,71 @@
-# sv
+# Tauri + SvelteKit Starter Template
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A modern, full-featured starter template for building desktop applications with Tauri 2 and SvelteKit.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 🚀 **Tauri 2** - Build smaller, faster, and more secure desktop applications
+- ⚡ **SvelteKit** - The fastest way to build svelte apps
+- 🎨 **Tailwind CSS v4** - Utility-first CSS framework
+- 🌙 **Dark/Light Theme** - Built-in theme switching with system preference detection
+- 🎭 **Custom Titlebar** - Beautiful, native-feeling window controls
+- 🔧 **TypeScript** - Full type safety
+- 📦 **Modern Build Tools** - Vite, ESLint, Prettier
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Quick Start
 
-# create a new project in my-app
-npx sv create my-app
+1. **Clone and install**
+   ```bash
+   git clone https://github.com/yourusername/tauri-sveltekit-starter.git
+   cd tauri-sveltekit-starter
+   npm install
+   ```
+
+2. **Development**
+   ```bash
+   npm run tauri:dev
+   ```
+
+3. **Build**
+   ```bash
+   npm run tauri:build
+   ```
+
+## Development
+
+### Commands
+- `npm run dev` - Start frontend development server
+- `npm run tauri:dev` - Start Tauri development with hot reload
+- `npm run build` - Build frontend for production
+- `npm run tauri:build` - Build Tauri app for production
+- `npm run format` - Format code with Prettier
+- `npm run lint` - Lint code with ESLint
+
+### Project Structure
+```
+├── src/                    # Frontend source
+│   ├── lib/               # Shared components and utilities
+│   │   ├── components/    # Reusable components
+│   │   ├── stores/        # Svelte stores
+│   │   └── config/        # App configuration
+│   ├── routes/            # SvelteKit routes
+│   └── app.html           # HTML template
+├── src-tauri/             # Tauri backend
+├── static/                # Static assets
+└── README.md
 ```
 
-## Developing
+## Customization
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Theme
+Edit `src/app.css` to customize colors and design tokens.
 
-```bash
-npm run dev
+### App Configuration
+Update `src/lib/config/app.ts` for app metadata and settings.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### Window Settings
+Modify `src-tauri/tauri.conf.json` for window behavior and permissions.
 
-## Building
+## License
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+MIT License - see LICENSE file for details.
