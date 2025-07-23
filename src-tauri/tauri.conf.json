@@ -13,6 +13,7 @@
 		"windows": [
 			{
 				"title": "Tauri + SvelteKit Starter Template",
+				"decorations": false,
 				"width": 800,
 				"height": 600,
 				"resizable": true,
