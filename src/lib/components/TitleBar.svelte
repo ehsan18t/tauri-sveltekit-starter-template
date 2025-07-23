@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { themeStore } from '@/lib/stores/theme';
 	import Icon from '@iconify/svelte';
-	import { getVersion } from '@tauri-apps/api/app';
+	import { getName, getVersion } from '@tauri-apps/api/app';
 	import { getCurrentWindow } from '@tauri-apps/api/window';
 	import { onMount } from 'svelte';
 	import ControlButton from './ControlButton.svelte';
@@ -23,7 +23,7 @@
 
 				// Get app info with better error handling
 				const [title, version, maximized] = await Promise.allSettled([
-					appWindow.title(),
+					getName(),
 					getVersion(),
 					appWindow.isMaximized()
 				]);
@@ -112,12 +112,12 @@
 				{/if}
 			</div>
 
-			<div class="app-details flex flex-col">
-				<span class="text-foreground text-sm font-semibold tracking-tight">
+			<div class="app-details flex items-center gap-1">
+				<span class="text-foreground font-semibold tracking-tight">
 					{appName}
-				</span>
-				<span class="text-foreground-subtle text-xs font-medium">
-					v{appVersion}
+					<span class="text-foreground-subtle text-xs font-medium">
+						v{appVersion}
+					</span>
 				</span>
 			</div>
 		</div>
