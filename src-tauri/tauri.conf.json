@@ -1,8 +1,8 @@
 {
 	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-	"productName": "tauri-sveltekit-starter-template",
+	"productName": "Tauri + SvelteKit Starter Template",
 	"version": "1.0.0",
-	"identifier": "me.ehsankhan.dev",
+	"identifier": "me.ehsankhan.template",
 	"build": {
 		"frontendDist": "../build",
 		"devUrl": "http://localhost:5173",
@@ -33,6 +33,19 @@
 			"icons/128x128@2x.png",
 			"icons/icon.icns",
 			"icons/icon.ico"
-		]
+		],
+		"publisher": "Ehsan Khan",
+		"category": "Productivity",
+		"shortDescription": "Short application description",
+		"longDescription": "Long application description",
+		"resources": [],
+		"copyright": "Copyright © 2025 Ehsan Khan",
+		"licenseFile": "../LICENSE",
+		"externalBin": [],
+		"windows": {
+			"certificateThumbprint": null,
+			"digestAlgorithm": "sha256",
+			"timestampUrl": ""
+		}
 	}
 }
