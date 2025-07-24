@@ -1,10 +1,13 @@
 [package]
-name = "app"
-version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+name = "tauri-sveltekit-starter-template"
+version = "1.0.0"
+description = "A powerful Tauri + SvelteKit application template"
+authors = ["Ehsan Khan <ehsan18t@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/ehsan18t/tauri-sveltekit-starter-template"
+homepage = "https://github.com/ehsan18t/tauri-sveltekit-starter-template"
+keywords = ["tauri", "sveltekit", "desktop", "template"]
+categories = ["multimedia", "text-processing"]
 edition = "2021"
 rust-version = "1.77.2"
 
