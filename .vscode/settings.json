@@ -1,3 +1,5 @@
 {
-	"cSpell.words": ["icns", "iconify", "tabler", "tauri", "unlisten", "unmaximize"]
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"cSpell.words": ["icns", "iconify", "styleset", "tabler", "tauri", "unlisten", "unmaximize"]
 }
