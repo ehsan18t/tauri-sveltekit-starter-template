@@ -40,23 +40,23 @@ This template comes with a set of pre-configured scripts to help you with develo
 
 | Command                | Description                                                                           |
 | :--------------------- | :------------------------------------------------------------------------------------ |
-| `npm run dev`          | Starts the Tauri development server with hot-reloading for both frontend and backend. |
-| `npm run build`        | Builds and bundles the application for production.                                    |
-| `npm run build:debug`  | Creates a debug build of the application.                                             |
+| `bun run dev`          | Starts the Tauri development server with hot-reloading for both frontend and backend. |
+| `bun run build`        | Builds and bundles the application for production.                                    |
+| `bun run build:debug`  | Creates a debug build of the application.                                             |
 |                        |                                                                                       |
-| `npm run format`       | Formats all source files with Prettier.                                               |
-| `npm run format:check` | Checks for formatting errors without modifying files.                                 |
-| `npm run lint`         | Lints the source files using ESLint.                                                  |
-| `npm run lint:fix`     | Lints and automatically fixes problems.                                               |
-| `npm run check`        | Runs the Svelte type-checker.                                                         |
-| `npm run validate`     | Runs all quality checks: format, lint, and type-check.                                |
+| `bun run format`       | Formats all source files with Prettier.                                               |
+| `bun run format:check` | Checks for formatting errors without modifying files.                                 |
+| `bun run lint`         | Lints the source files using ESLint.                                                  |
+| `bun run lint:fix`     | Lints and automatically fixes problems.                                               |
+| `bun run check`        | Runs the Svelte type-checker.                                                         |
+| `bun run validate`     | Runs all quality checks: format, lint, and type-check.                                |
 |                        |                                                                                       |
-| `npm run clean`        | Removes all build artifacts and temporary directories.                                |
-| `npm run prepare`      | SvelteKit's command to generate types                                                 |
+| `bun run clean`        | Removes all build artifacts and temporary directories.                                |
+| `bun run prepare`      | SvelteKit's command to generate types                                                 |
 
 ### Project Structure
 ```
-├── src/                    # Frontend source
+├── src/                   # Frontend source
 │   ├── lib/               # Shared components and utilities
 │   │   ├── components/    # Reusable components
 │   │   ├── stores/        # Svelte stores
