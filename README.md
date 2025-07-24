@@ -4,13 +4,14 @@ A modern, full-featured starter template for building desktop applications with 
 
 ## Features
 
-- 🚀 **Tauri 2** - Build smaller, faster, and more secure desktop applications
-- ⚡ **SvelteKit** - The fastest way to build svelte apps
-- 🎨 **Tailwind CSS v4** - Utility-first CSS framework
-- 🌙 **Dark/Light Theme** - Built-in theme switching with system preference detection
-- 🎭 **Custom Titlebar** - Beautiful, native-feeling window controls
-- 🔧 **TypeScript** - Full type safety
-- 📦 **Modern Build Tools** - Vite, ESLint, Prettier
+- 🚀 **Tauri 2** - Build smaller, faster, and more secure desktop applications.
+- ⚡ **SvelteKit** - The fastest way to build svelte apps.
+- 🎨 **Tailwind CSS v4** - Utility-first CSS framework.
+- 🌟 **Icons**: Easily use thousands of icons from [Iconify](https://iconify.design/).
+- 🌙 **Dark/Light Theme** - Built-in theme switching with system preference detection.
+- 🎭 **Custom Titlebar** - Beautiful, native-feeling window controls.
+- 🔧 **TypeScript** - Full type safety.
+- 📦 **Modern Build Tools** - Vite, ESLint, Prettier.
 
 ## Quick Start
 
@@ -18,28 +19,40 @@ A modern, full-featured starter template for building desktop applications with 
    ```bash
    git clone https://github.com/yourusername/tauri-sveltekit-starter.git
    cd tauri-sveltekit-starter
-   npm install
+   bun install
    ```
 
 2. **Development**
    ```bash
-   npm run tauri:dev
+   bun run tauri:dev
    ```
 
 3. **Build**
    ```bash
-   npm run tauri:build
+   bun run tauri:build
    ```
 
 ## Development
 
 ### Commands
-- `npm run dev` - Start frontend development server
-- `npm run tauri:dev` - Start Tauri development with hot reload
-- `npm run build` - Build frontend for production
-- `npm run tauri:build` - Build Tauri app for production
-- `npm run format` - Format code with Prettier
-- `npm run lint` - Lint code with ESLint
+
+This template comes with a set of pre-configured scripts to help you with development and maintenance.
+
+| Command                | Description                                                                           |
+| :--------------------- | :------------------------------------------------------------------------------------ |
+| `npm run dev`          | Starts the Tauri development server with hot-reloading for both frontend and backend. |
+| `npm run build`        | Builds and bundles the application for production.                                    |
+| `npm run build:debug`  | Creates a debug build of the application.                                             |
+|                        |                                                                                       |
+| `npm run format`       | Formats all source files with Prettier.                                               |
+| `npm run format:check` | Checks for formatting errors without modifying files.                                 |
+| `npm run lint`         | Lints the source files using ESLint.                                                  |
+| `npm run lint:fix`     | Lints and automatically fixes problems.                                               |
+| `npm run check`        | Runs the Svelte type-checker.                                                         |
+| `npm run validate`     | Runs all quality checks: format, lint, and type-check.                                |
+|                        |                                                                                       |
+| `npm run clean`        | Removes all build artifacts and temporary directories.                                |
+| `npm run prepare`      | SvelteKit's command to generate types                                                 |
 
 ### Project Structure
 ```
@@ -64,7 +77,7 @@ Edit `src/app.css` to customize colors and design tokens.
 Update `src/lib/config/app.ts` for app metadata and settings.
 
 ### Window Settings
-Modify `src-tauri/tauri.conf.json` for window behavior and permissions.
+Modify `src-tauri/tauri.conf.json` and `src-tauri/Cargo.toml` for window behavior and permissions.
 
 ## License
 
