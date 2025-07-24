@@ -35,7 +35,8 @@
 		"type-check": "tsc --noEmit",
 		"validate": "npm run format:check && npm run lint && npm run check",
 		"copy-icons": "cpx \"src-tauri/icons/32x32.png\" \"static/icons\"",
-		"clean": "rimraf .svelte-kit dist src-tauri/target",
+		"clean": "rimraf .svelte-kit build dist",
+		"hard-clean": "rimraf .svelte-kit build dist src-tauri/target",
 		"postinstall": "npm run copy-icons"
 	},
 	"dependencies": {
