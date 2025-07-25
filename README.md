@@ -74,6 +74,18 @@ This template comes with a set of pre-configured scripts to help you with develo
 └── README.md
 ```
 
+## Documentation
+
+### Backend Development
+For detailed information about working with the Rust backend, including:
+- Understanding the project structure
+- Creating and managing Tauri commands
+- Working with application state
+- Error handling best practices
+- Frontend-backend communication
+
+**📖 [Read the Rust Backend Developer Guide](./RUST_BACKEND_GUIDE.md)**
+
 ## Customization
 
 ### Theme
