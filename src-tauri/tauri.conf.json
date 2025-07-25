@@ -14,7 +14,9 @@
 			{
 				"decorations": false,
 				"width": 800,
+				"minWidth": 600,
 				"height": 600,
+				"minHeight": 400,
 				"resizable": true,
 				"fullscreen": false
 			}
