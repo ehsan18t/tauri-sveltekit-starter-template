@@ -17,21 +17,27 @@ A modern, full-featured starter template for building desktop applications with 
 
 1. **Clone and install**
    ```bash
-   git clone https://github.com/yourusername/tauri-sveltekit-starter.git
-   cd tauri-sveltekit-starter
+   git clone https://github.com/yourusername/tauri-sveltekit-starter-template.git
+   ```
+   ```bash
+   cd tauri-sveltekit-starter-template
    bun install
    ```
 
 2. **Development**
    ```bash
-   bun run tauri:dev
+   bun run dev
    ```
 
 3. **Build**
    ```bash
-   bun run tauri:build
+   bun run build
    ```
 
+4. **Build Debug**
+   ```bash
+   bun run build:debug
+   ```
 ## Development
 
 ### Commands
