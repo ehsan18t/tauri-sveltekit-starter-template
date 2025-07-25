@@ -1,5 +1,19 @@
 {
 	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"cSpell.words": ["icns", "iconify", "styleset", "tabler", "tauri", "unlisten", "unmaximize"]
+	"cSpell.words": [
+		"cdylib",
+		"icns",
+		"iconify",
+		"rlib",
+		"serde",
+		"staticlib",
+		"styleset",
+		"sveltekit",
+		"tabler",
+		"tauri",
+		"thiserror",
+		"unlisten",
+		"unmaximize"
+	],
+	"svelte.enable-ts-plugin": true
 }

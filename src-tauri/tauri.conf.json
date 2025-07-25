@@ -1,11 +1,11 @@
 {
-	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+	"$schema": "https://schema.tauri.app/config/2",
 	"productName": "Tauri + SvelteKit Starter Template",
 	"version": "1.0.0",
-	"identifier": "me.ehsankhan.template",
+	"identifier": "me.ehsankhan.tauri-sveltekit-starter-template",
 	"build": {
 		"frontendDist": "../build",
-		"devUrl": "http://localhost:5173",
+		"devUrl": "http://localhost:1420",
 		"beforeDevCommand": "vite dev",
 		"beforeBuildCommand": "vite build"
 	},

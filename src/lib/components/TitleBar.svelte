@@ -12,7 +12,7 @@
 	let isMaximized = false;
 	let isLoaded = false;
 
-	let appIcon = '/icons/32x32.png';
+	let appIcon = '/tauri.svg';
 
 	onMount(() => {
 		let unlisten: (() => void) | undefined;
@@ -93,7 +93,7 @@
 
 {#if isLoaded}
 	<div
-		class="titlebar bg-elevated border-border drag-enable text-foreground flex h-12 select-none items-center justify-between border-b px-4 py-2 backdrop-blur-sm"
+		class="titlebar bg-elevated border-border drag-enable text-foreground flex h-12 select-none items-center justify-between border-b px-2.5 py-2 backdrop-blur-sm"
 	>
 		<div class="app-info flex items-center gap-3">
 			<div
