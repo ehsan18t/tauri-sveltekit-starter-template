@@ -1,11 +1,11 @@
 /* Tailwind CSS */
-@import 'tailwindcss';
-@import '@/assets/fonts/inter/inter.css';
+@import "tailwindcss";
+@import "@/assets/fonts/inter/inter.css";
 
 @layer base {
 	/* Dark Theme (Default) */
 	:root,
-	[data-theme='dark'] {
+	[data-theme="dark"] {
 		color-scheme: dark;
 
 		/* Background Colors */
@@ -51,7 +51,7 @@
 	}
 
 	/* Light Theme */
-	[data-theme='light'] {
+	[data-theme="light"] {
 		color-scheme: light;
 
 		/* Background Colors */
@@ -128,7 +128,7 @@
 	--color-info: hsl(var(--info));
 
 	/* Define font variable for Tailwind */
-	--font-Inter: 'Inter', sans-serif;
+	--font-Inter: "Inter", sans-serif;
 
 	--animate-*: initial;
 }

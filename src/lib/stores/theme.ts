@@ -1,11 +1,11 @@
-import { browser } from '$app/environment';
-import { APP_CONFIG } from '@/lib/config/app';
-import { writable } from 'svelte/store';
+import { browser } from "$app/environment";
+import { APP_CONFIG } from "@/lib/config/app";
+import { writable } from "svelte/store";
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 function createThemeStore() {
-	const { subscribe, set, update } = writable<Theme>('dark');
+	const { subscribe, set, update } = writable<Theme>("dark");
 
 	return {
 		subscribe,
@@ -14,19 +14,19 @@ function createThemeStore() {
 			if (!browser) return;
 
 			const stored = localStorage.getItem(APP_CONFIG.theme.storageKey) as Theme;
-			const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-			const initialTheme = stored || (systemPrefersDark ? 'dark' : 'light');
+			const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+			const initialTheme = stored || (systemPrefersDark ? "dark" : "light");
 
 			set(initialTheme);
-			document.documentElement.setAttribute('data-theme', initialTheme);
+			document.documentElement.setAttribute("data-theme", initialTheme);
 		},
 
 		toggle: () => {
 			update((current) => {
-				const newTheme = current === 'dark' ? 'light' : 'dark';
+				const newTheme = current === "dark" ? "light" : "dark";
 				if (browser) {
 					localStorage.setItem(APP_CONFIG.theme.storageKey, newTheme);
-					document.documentElement.setAttribute('data-theme', newTheme);
+					document.documentElement.setAttribute("data-theme", newTheme);
 				}
 				return newTheme;
 			});
@@ -36,7 +36,7 @@ function createThemeStore() {
 			set(theme);
 			if (browser) {
 				localStorage.setItem(APP_CONFIG.theme.storageKey, theme);
-				document.documentElement.setAttribute('data-theme', theme);
+				document.documentElement.setAttribute("data-theme", theme);
 			}
 		}
 	};

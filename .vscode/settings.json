@@ -8,6 +8,7 @@
 		"serde",
 		"staticlib",
 		"styleset",
+		"Stylesheet",
 		"sveltekit",
 		"tabler",
 		"tauri",

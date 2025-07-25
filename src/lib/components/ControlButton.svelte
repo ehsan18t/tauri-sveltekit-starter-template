@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Icon from '@iconify/svelte';
+	import Icon from "@iconify/svelte";
 
 	let {
 		title,
 		icon,
-		variant = 'default',
+		variant = "default",
 		onClick
 	} = $props<{
 		title: string;
 		icon: string;
-		variant?: 'default' | 'theme' | 'danger';
+		variant?: "default" | "theme" | "danger";
 		onClick: () => void;
 	}>();
 </script>

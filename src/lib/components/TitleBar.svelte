@@ -1,18 +1,18 @@
 <script lang="ts">
-	import { themeStore } from '@/lib/stores/theme';
-	import Icon from '@iconify/svelte';
-	import { getName, getVersion } from '@tauri-apps/api/app';
-	import { getCurrentWindow } from '@tauri-apps/api/window';
-	import { onMount } from 'svelte';
-	import ControlButton from './ControlButton.svelte';
+	import { themeStore } from "@/lib/stores/theme";
+	import Icon from "@iconify/svelte";
+	import { getName, getVersion } from "@tauri-apps/api/app";
+	import { getCurrentWindow } from "@tauri-apps/api/window";
+	import { onMount } from "svelte";
+	import ControlButton from "./ControlButton.svelte";
 
 	let appWindow: ReturnType<typeof getCurrentWindow>;
-	let appName = '';
-	let appVersion = '';
+	let appName = "";
+	let appVersion = "";
 	let isMaximized = false;
 	let isLoaded = false;
 
-	let appIcon = '/tauri.svg';
+	let appIcon = "/tauri.svg";
 
 	onMount(() => {
 		let unlisten: (() => void) | undefined;
@@ -28,9 +28,9 @@
 					appWindow.isMaximized()
 				]);
 
-				appName = title.status === 'fulfilled' ? title.value : 'Tauri + SvelteKit Starter Template';
-				appVersion = version.status === 'fulfilled' ? version.value : '1.0.0';
-				isMaximized = maximized.status === 'fulfilled' ? maximized.value : false;
+				appName = title.status === "fulfilled" ? title.value : "Tauri + SvelteKit Starter Template";
+				appVersion = version.status === "fulfilled" ? version.value : "1.0.0";
+				isMaximized = maximized.status === "fulfilled" ? maximized.value : false;
 
 				isLoaded = true;
 
@@ -39,14 +39,14 @@
 					try {
 						isMaximized = await appWindow.isMaximized();
 					} catch (error) {
-						console.warn('Failed to check maximized state:', error);
+						console.warn("Failed to check maximized state:", error);
 					}
 				});
 			} catch (error) {
-				console.error('Failed to initialize titlebar:', error);
+				console.error("Failed to initialize titlebar:", error);
 				// Still show the titlebar even if some things fail
-				appName = 'Tauri + SvelteKit Starter Template';
-				appVersion = '1.0.0';
+				appName = "Tauri + SvelteKit Starter Template";
+				appVersion = "1.0.0";
 				isLoaded = true;
 			}
 		};
@@ -64,7 +64,7 @@
 		try {
 			await appWindow?.minimize();
 		} catch (error) {
-			console.error('Failed to minimize:', error);
+			console.error("Failed to minimize:", error);
 		}
 	};
 
@@ -73,7 +73,7 @@
 		try {
 			isMaximized ? await appWindow.unmaximize() : await appWindow.maximize();
 		} catch (error) {
-			console.error('Failed to maximize/restore:', error);
+			console.error("Failed to maximize/restore:", error);
 		}
 	};
 
@@ -81,7 +81,7 @@
 		try {
 			await appWindow?.close();
 		} catch (error) {
-			console.error('Failed to close:', error);
+			console.error("Failed to close:", error);
 		}
 	};
 
@@ -104,7 +104,7 @@
 					alt="App Icon"
 					class="h-full w-full rounded-sm object-contain"
 					on:error={() => {
-						appIcon = '';
+						appIcon = "";
 					}}
 				/>
 				{#if !appIcon}
@@ -125,7 +125,7 @@
 		<div class="window-controls drag-disable flex items-center">
 			<ControlButton
 				title="Toggle Theme"
-				icon={$themeStore === 'dark' ? 'tabler:moon' : 'tabler:sun'}
+				icon={$themeStore === "dark" ? "tabler:moon" : "tabler:sun"}
 				onClick={toggleTheme}
 				variant="theme"
 			/>
@@ -135,8 +135,8 @@
 
 			<ControlButton title="Minimize" icon="tabler:minus" onClick={minimize} variant="default" />
 			<ControlButton
-				title={isMaximized ? 'Restore' : 'Maximize'}
-				icon={isMaximized ? 'tabler:copy' : 'tabler:square'}
+				title={isMaximized ? "Restore" : "Maximize"}
+				icon={isMaximized ? "tabler:copy" : "tabler:square"}
 				onClick={maximize}
 				variant="default"
 			/>
