@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ExternalLink from "$lib/components/ExternalLink.svelte";
 	import { invoke } from "@tauri-apps/api/core";
 
 	let name = $state("");
@@ -18,15 +19,15 @@
 		<h1 class="text-foreground mb-8 select-text text-4xl font-bold">Welcome to Tauri + Svelte</h1>
 
 		<div class="flex justify-center gap-4">
-			<a href="https://vitejs.dev" target="_blank" class="logo-link">
+			<ExternalLink href="https://vitejs.dev" class="logo-link">
 				<img src="/vite.svg" class="logo vite" alt="Vite Logo" />
-			</a>
-			<a href="https://tauri.app" target="_blank" class="logo-link">
+			</ExternalLink>
+			<ExternalLink href="https://tauri.app" class="logo-link">
 				<img src="/tauri.svg" class="logo tauri" alt="Tauri Logo" />
-			</a>
-			<a href="https://kit.svelte.dev" target="_blank" class="logo-link">
+			</ExternalLink>
+			<ExternalLink href="https://kit.svelte.dev" class="logo-link">
 				<img src="/svelte.svg" class="logo svelte-kit" alt="SvelteKit Logo" />
-			</a>
+			</ExternalLink>
 		</div>
 
 		<p class="text-foreground-muted mb-8">
@@ -78,12 +79,12 @@
 		filter: drop-shadow(0 0 2em #24c8db);
 	}
 
-	.logo-link {
+	:global(.logo-link) {
 		display: inline-block;
 		transition: transform 0.2s ease;
 	}
 
-	.logo-link:hover {
+	:global(.logo-link:hover) {
 		transform: translateY(-2px);
 	}
 
