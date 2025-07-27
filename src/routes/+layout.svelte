@@ -12,6 +12,6 @@
 
 <TitleBar />
 <!-- TitleBar height=h-10 == 2.5rem -->
-<main class="h-[calc(100dvh-2.5rem)] w-full">
+<main class="h-[calc(100dvh-2.5rem)] w-full overflow-auto">
 	{@render children()}
 </main>
