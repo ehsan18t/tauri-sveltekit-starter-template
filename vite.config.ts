@@ -1,6 +1,7 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'vite';
+import { sveltekit } from "@sveltejs/kit/vite";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "vite";
+import { APP_CONFIG } from "./src/lib/config/app";
 
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
@@ -8,6 +9,11 @@ const host = process.env.TAURI_DEV_HOST;
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
 	plugins: [sveltekit(), tailwindcss()],
+
+	// Define the config as build-time constants
+	define: {
+		__APP_CONFIG__: JSON.stringify(APP_CONFIG)
+	},
 
 	// Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
 	//
@@ -20,22 +26,22 @@ export default defineConfig(async () => ({
 		host: host || false,
 		hmr: host
 			? {
-					protocol: 'ws',
+					protocol: "ws",
 					host,
 					port: 1421
 				}
 			: undefined,
 		watch: {
 			// 3. tell vite to ignore watching `src-tauri`
-			ignored: ['**/src-tauri/**']
+			ignored: ["**/src-tauri/**"]
 		}
 	},
 	resolve: {
 		alias: {
-			'@': new URL('./src', import.meta.url).pathname
+			"@": new URL("./src", import.meta.url).pathname
 		}
 	},
 	optimizeDeps: {
-		exclude: ['@tauri-apps/api']
+		exclude: ["@tauri-apps/api"]
 	}
 }));
