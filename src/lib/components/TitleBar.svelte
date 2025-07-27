@@ -21,9 +21,6 @@
 			try {
 				appWindow = getCurrentWindow();
 
-				// Set initial window shadow
-				appWindow.setShadow(true);
-
 				// Get app info with better error handling
 				const [title, version, maximized] = await Promise.allSettled([
 					getName(),
