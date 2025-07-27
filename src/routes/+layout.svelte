@@ -11,7 +11,7 @@
 </script>
 
 <TitleBar />
-<!-- TitleBar height=h-12 == 3rem -->
-<main class="h-[calc(100dvh-3rem)] w-full">
+<!-- TitleBar height=h-10 == 2.5rem -->
+<main class="h-[calc(100dvh-2.5rem)] w-full">
 	{@render children()}
 </main>

@@ -21,6 +21,9 @@
 			try {
 				appWindow = getCurrentWindow();
 
+				// Set initial window shadow
+				appWindow.setShadow(true);
+
 				// Get app info with better error handling
 				const [title, version, maximized] = await Promise.allSettled([
 					getName(),
@@ -93,7 +96,7 @@
 
 {#if isLoaded}
 	<div
-		class="titlebar bg-elevated border-border drag-enable text-foreground flex h-12 select-none items-center justify-between border-b px-2.5 py-2 backdrop-blur-sm"
+		class="titlebar bg-elevated border-border drag-enable text-foreground flex h-10 select-none items-center justify-between border-b pl-1.5 pr-1 backdrop-blur-sm"
 	>
 		<div class="app-info flex items-center gap-3">
 			<div
@@ -133,10 +136,15 @@
 			<!-- Material Design divider -->
 			<div class="bg-foreground-muted/20 mx-2 h-4 w-px"></div>
 
-			<ControlButton title="Minimize" icon="tabler:minus" onClick={minimize} variant="default" />
+			<ControlButton
+				title="Minimize"
+				icon="fluent:minimize-20-filled"
+				onClick={minimize}
+				variant="default"
+			/>
 			<ControlButton
 				title={isMaximized ? "Restore" : "Maximize"}
-				icon={isMaximized ? "tabler:copy" : "tabler:square"}
+				icon={isMaximized ? "tabler:copy" : "fluent:maximize-20-filled"}
 				onClick={maximize}
 				variant="default"
 			/>
