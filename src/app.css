@@ -3,6 +3,15 @@
 @import "@/assets/fonts/inter/inter.css";
 
 @layer base {
+	/*
+     * Disable selection globally by default on the body.
+	 * This can be overridden by adding
+	 * `select-text` or `select-all` class to any element.
+    */
+	body {
+		@apply select-none;
+	}
+
 	/* Dark Theme (Default) */
 	:root,
 	[data-theme="dark"] {

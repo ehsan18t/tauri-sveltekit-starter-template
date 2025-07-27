@@ -15,7 +15,7 @@
 	class="bg-background text-foreground flex h-full w-full items-center justify-center transition-colors duration-300"
 >
 	<div>
-		<h1 class="text-foreground mb-8 text-4xl font-bold">Welcome to Tauri + Svelte</h1>
+		<h1 class="text-foreground mb-8 select-text text-4xl font-bold">Welcome to Tauri + Svelte</h1>
 
 		<div class="flex justify-center gap-4">
 			<a href="https://vitejs.dev" target="_blank" class="logo-link">
