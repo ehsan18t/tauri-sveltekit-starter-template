@@ -12,8 +12,8 @@ tab_spaces = 4
 # Line length
 max_width = 100
 
-# Line endings (Unix style - LF)
-newline_style = "Unix"
+# Line endings (Auto style - adapts to platform)
+newline_style = "Auto"
 
 # Imports
 reorder_imports = true
