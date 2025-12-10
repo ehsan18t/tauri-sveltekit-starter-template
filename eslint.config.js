@@ -47,6 +47,28 @@ export default [
           },
         },
       ],
+      // Forbid non-null assertion for non-optional properties
+      "@typescript-eslint/no-non-null-assertion": "warn",
+      // Require Promise-like values to be handled
+      "@typescript-eslint/no-floating-promises": "error",
+      // Require explicit types on exports and public class methods
+      "@typescript-eslint/explicit-module-boundary-types": [
+        "warn",
+        { allowArgumentsExplicitlyTypedAsAny: true },
+      ],
+      // Enforce consistent type imports
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          prefer: "type-imports",
+          disallowTypeAnnotations: false,
+        },
+      ],
+      // Enforce consistent type exports
+      "@typescript-eslint/consistent-type-exports": [
+        "error",
+        { fixMixedExportsWithInlineTypeSpecifier: true },
+      ],
     },
   },
   {
@@ -64,6 +86,10 @@ export default [
       "@typescript-eslint/no-deprecated": "error",
       // Disallow `any` type in Svelte
       "@typescript-eslint/no-explicit-any": "error",
+      // Svelte best practices
+      "svelte/no-unused-svelte-ignore": "error",
+      "svelte/no-reactive-reassign": "warn",
+      "svelte/valid-compile": "error",
     },
   },
   {
@@ -94,6 +120,22 @@ export default [
       "prefer-const": "error",
       "no-var": "error",
       eqeqeq: ["error", "always", { null: "ignore" }],
+      // Security-related rules
+      "no-eval": "error",
+      "no-implied-eval": "error",
+      "no-new-func": "error",
+      "no-script-url": "error",
+      "no-with": "error",
+      // Best practices
+      "no-empty-function": ["error", { allow: ["arrowFunctions", "constructors"] }],
+      "no-multi-spaces": "error",
+      "no-multiple-empty-lines": ["error", { max: 1 }],
+      "no-trailing-spaces": "error",
+      "object-curly-spacing": ["error", "always"],
+      // Control flow
+      "no-fallthrough": "error",
+      "no-unreachable": "error",
+      "require-await": "warn",
     },
   },
 ];
