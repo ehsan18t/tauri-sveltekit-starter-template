@@ -1,5 +1,12 @@
 {
 	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"[rust]": {
+		"editor.defaultFormatter": "rust-lang.rust-analyzer"
+	},
 	"cSpell.words": [
 		"cdylib",
 		"icns",
@@ -16,5 +23,7 @@
 		"unlisten",
 		"unmaximize"
 	],
-	"svelte.enable-ts-plugin": true
+	"svelte.enable-ts-plugin": true,
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"eslint.validate": ["javascript", "typescript", "svelte"]
 }
