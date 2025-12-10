@@ -93,17 +93,17 @@
 
 {#if isLoaded}
 	<div
-		class="titlebar bg-elevated border-border drag-enable text-foreground flex h-10 select-none items-center justify-between border-b pl-1.5 pr-1 backdrop-blur-sm"
+		class="titlebar flex h-10 items-center justify-between border-b border-border bg-elevated pr-1 pl-1.5 text-foreground backdrop-blur-sm select-none drag-enable"
 	>
 		<div class="app-info flex items-center gap-3">
 			<div
-				class="icon-container bg-accent/10 flex h-7 w-7 items-center justify-center rounded-md p-1"
+				class="icon-container flex h-7 w-7 items-center justify-center rounded-md bg-accent/10 p-1"
 			>
 				<img
 					src={appIcon}
 					alt="App Icon"
 					class="h-full w-full rounded-sm object-contain"
-					on:error={() => {
+					onerror={() => {
 						appIcon = "";
 					}}
 				/>
@@ -113,16 +113,16 @@
 			</div>
 
 			<div class="app-details flex items-center gap-1">
-				<span class="text-foreground font-semibold tracking-tight">
+				<span class="font-semibold tracking-tight text-foreground">
 					{appName}
-					<span class="text-foreground-subtle text-xs font-medium">
+					<span class="text-xs font-medium text-foreground-subtle">
 						v{appVersion}
 					</span>
 				</span>
 			</div>
 		</div>
 
-		<div class="window-controls drag-disable flex items-center">
+		<div class="window-controls flex items-center drag-disable">
 			<ControlButton
 				title="Toggle Theme"
 				icon={$themeStore === "dark" ? "tabler:moon" : "tabler:sun"}
@@ -131,7 +131,7 @@
 			/>
 
 			<!-- Material Design divider -->
-			<div class="bg-foreground-muted/20 mx-2 h-4 w-px"></div>
+			<div class="mx-2 h-4 w-px bg-foreground-muted/20"></div>
 
 			<ControlButton
 				title="Minimize"
@@ -150,9 +150,9 @@
 	</div>
 {:else}
 	<!-- Loading state with proper theme colors -->
-	<div class="titlebar bg-elevated border-border drag-enable h-12 border-b">
+	<div class="titlebar h-12 border-b border-border bg-elevated drag-enable">
 		<div class="flex h-full items-center justify-center">
-			<div class="text-foreground-muted animate-pulse text-xs">Loading...</div>
+			<div class="animate-pulse text-xs text-foreground-muted">Loading...</div>
 		</div>
 	</div>
 {/if}
