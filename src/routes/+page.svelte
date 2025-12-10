@@ -13,10 +13,10 @@
 </script>
 
 <div
-	class="bg-background text-foreground flex h-full w-full items-center justify-center transition-colors duration-300"
+	class="flex h-full w-full items-center justify-center bg-background text-foreground transition-colors duration-300"
 >
 	<div>
-		<h1 class="text-foreground mb-8 select-text text-4xl font-bold">Welcome to Tauri + Svelte</h1>
+		<h1 class="mb-8 text-4xl font-bold text-foreground select-text">Welcome to Tauri + Svelte</h1>
 
 		<div class="flex justify-center gap-4">
 			<ExternalLink href="https://vitejs.dev" class="logo-link">
@@ -30,7 +30,7 @@
 			</ExternalLink>
 		</div>
 
-		<p class="text-foreground-muted mb-8">
+		<p class="mb-8 text-foreground-muted">
 			Click on the Tauri, Vite, and SvelteKit logos to learn more.
 		</p>
 
@@ -39,11 +39,11 @@
 				id="greet-input"
 				placeholder="Enter a name..."
 				bind:value={name}
-				class="greet-input bg-card text-foreground border-border hover:border-border-hover focus:border-primary mr-2 rounded-lg border px-4 py-2 outline-none transition-all duration-200"
+				class="greet-input mr-2 rounded-lg border border-border bg-card px-4 py-2 text-foreground transition-all duration-200 outline-none hover:border-border-hover focus:border-primary"
 			/>
 			<button
 				type="submit"
-				class="greet-btn bg-primary hover:bg-primary-hover text-primary-foreground cursor-pointer rounded-lg border border-transparent px-6 py-2 font-medium transition-all duration-200"
+				class="greet-btn cursor-pointer rounded-lg border border-transparent bg-primary px-6 py-2 font-medium text-primary-foreground transition-all duration-200 hover:bg-primary-hover"
 			>
 				Greet
 			</button>
@@ -51,7 +51,7 @@
 
 		{#if greetMsg}
 			<p
-				class="result-msg text-foreground bg-card border-border mx-auto max-w-md rounded-lg border p-4"
+				class="result-msg mx-auto max-w-md rounded-lg border border-border bg-card p-4 text-foreground"
 			>
 				{greetMsg}
 			</p>
