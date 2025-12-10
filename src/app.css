@@ -1,6 +1,6 @@
 /* Tailwind CSS */
 @import "tailwindcss";
-@import "@/assets/fonts/inter/inter.css";
+@import "./assets/fonts/inter/inter.css";
 
 @layer base {
 	/*
