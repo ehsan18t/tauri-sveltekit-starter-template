@@ -31,22 +31,22 @@
     "editor.tabSize": 2
   },
   "cSpell.words": [
-		"cdylib",
-		"icns",
-		"iconify",
-		"rlib",
-		"serde",
-		"staticlib",
-		"styleset",
-		"Stylesheet",
-		"sveltekit",
-		"tabler",
-		"tauri",
-		"thiserror",
-		"unlisten",
-		"unmaximize"
-	],
-	"svelte.enable-ts-plugin": true,
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"eslint.validate": ["javascript", "typescript", "svelte"]
+    "cdylib",
+    "icns",
+    "iconify",
+    "rlib",
+    "serde",
+    "staticlib",
+    "styleset",
+    "Stylesheet",
+    "sveltekit",
+    "tabler",
+    "tauri",
+    "thiserror",
+    "unlisten",
+    "unmaximize"
+  ],
+  "svelte.enable-ts-plugin": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.validate": ["javascript", "typescript", "svelte"]
 }

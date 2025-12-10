@@ -8,7 +8,7 @@ import svelteConfig from "./svelte.config.js";
 
 const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url));
 
-export default ts.config(
+export default [
   includeIgnoreFile(gitignorePath),
   js.configs.recommended,
   ...ts.configs.recommended,
@@ -93,7 +93,7 @@ export default ts.config(
       "no-debugger": "warn",
       "prefer-const": "error",
       "no-var": "error",
-      "eqeqeq": ["error", "always", { null: "ignore" }],
+      eqeqeq: ["error", "always", { null: "ignore" }],
     },
-  }
-);
+  },
+];
