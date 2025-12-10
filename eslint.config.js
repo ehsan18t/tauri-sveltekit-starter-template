@@ -15,6 +15,34 @@ export default ts.config(
 	...svelte.configs.recommended,
 	prettier,
 	...svelte.configs.prettier,
+	// TypeScript type-aware linting configuration
+	{
+		files: ["**/*.ts", "**/*.tsx"],
+		languageOptions: {
+			parserOptions: {
+				projectService: true
+			}
+		},
+		rules: {
+			// Detect usage of deprecated TypeScript APIs
+			"@typescript-eslint/no-deprecated": "error"
+		}
+	},
+	{
+		files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+				extraFileExtensions: [".svelte"],
+				parser: ts.parser,
+				svelteConfig
+			}
+		},
+		rules: {
+			// Detect usage of deprecated TypeScript APIs in Svelte
+			"@typescript-eslint/no-deprecated": "error"
+		}
+	},
 	{
 		languageOptions: {
 			globals: {
@@ -37,17 +65,6 @@ export default ts.config(
 			"no-undef": "off",
 			"no-unused-expressions": "off",
 			"@typescript-eslint/no-unused-expressions": "off"
-		}
-	},
-	{
-		files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
-		languageOptions: {
-			parserOptions: {
-				projectService: true,
-				extraFileExtensions: [".svelte"],
-				parser: ts.parser,
-				svelteConfig
-			}
 		}
 	}
 );
